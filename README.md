@@ -31,3 +31,12 @@ console.log(logHistory);
 ```
 
 ![image](https://github.com/user-attachments/assets/27127b6e-371c-4fce-8eff-7643c3a8608f)
+
+
+Notes:
+
+Will replace `console.info`, `console.debug`, `console.warn`, and `console.error`. `console.log` will remain untouched and can still be used for one-off logging statements.
+
+If you need to log an object so that it still expands in the console, but can add to the `logHistory` object, you can use `console.logObj`
+
+To set the limit for log history, set `logLimit`. Default is 200.

@@ -18,7 +18,7 @@ A logger that retains the code location with two features
 
 2) A record of history
 
-`import { logHistory } from "luxe-log";`
-`console.log(logHistory);`
+```import { logHistory } from "luxe-log";
+console.log(logHistory);```
 
 ![image](https://github.com/user-attachments/assets/27127b6e-371c-4fce-8eff-7643c3a8608f)

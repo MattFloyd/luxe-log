@@ -15,6 +15,13 @@ A logger that retains the code location with two features
 
 ![image](https://github.com/user-attachments/assets/4f395964-99c3-4f20-9f39-99fda01ae086)
 
+Can be combined:
+
+`console.debug("and that's why you ", i("always"), " leave a ", u("note!")));`
+
+![image](https://github.com/user-attachments/assets/ab33aa89-1bd9-4933-b3ea-9e638a952373)
+
+
 
 2) A record of history
 

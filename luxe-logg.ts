@@ -35,11 +35,12 @@ function logPartsToConsoleLogArray(messageParts: (LogPart | string)[]) : string[
 
 const logHistory : string[] = [];
 
+let logLimit = 200;
 function logMessage(level: LogLevel, message: (LogPart | string)[]) : string[] {
    const [lvlMsg, lvlFmt] = levelParts(level);
    const [msg, ...otherFmts] = logPartsToConsoleLogArray(message)
 
-   if (logHistory.length > 200) logHistory.shift();
+   if (logHistory.length > logLimit) logHistory.shift();
    logHistory.push((lvlMsg + " " + msg).replaceAll("%c", ""));
 
    return [`${lvlMsg}%c ${msg}`, lvlFmt, "", ...otherFmts];
@@ -123,11 +124,17 @@ console.info = (...argses) => {
    objectLogFn(argy)();
  }
 
+ const getLogLimit = () => {
+   return logLimit;
+ }
+
+const setLogLimit = (newLimit: number) => {
+   logLimit = newLimit;
+   logHistory.length = logLimit;
+}
+
 export { 
-   debug, info, warn, error, 
-   debugFn, infoFn, warnFn, errorFn,
-   objectLogFn,
    b, u, i, strike, 
-   LogPart, LogFormat,
+   getLogLimit, setLogLimit, 
    logHistory
 };

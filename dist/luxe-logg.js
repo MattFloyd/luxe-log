@@ -1,15 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.logHistory = void 0;
-exports.debug = debug;
-exports.info = info;
-exports.warn = warn;
-exports.error = error;
-exports.debugFn = debugFn;
-exports.infoFn = infoFn;
-exports.warnFn = warnFn;
-exports.errorFn = errorFn;
-exports.objectLogFn = objectLogFn;
+exports.logHistory = exports.setLogLimit = exports.getLogLimit = void 0;
 exports.b = b;
 exports.u = u;
 exports.i = i;
@@ -49,10 +40,11 @@ function logPartsToConsoleLogArray(messageParts) {
 }
 const logHistory = [];
 exports.logHistory = logHistory;
+let logLimit = 200;
 function logMessage(level, message) {
     const [lvlMsg, lvlFmt] = levelParts(level);
     const [msg, ...otherFmts] = logPartsToConsoleLogArray(message);
-    if (logHistory.length > 200)
+    if (logHistory.length > logLimit)
         logHistory.shift();
     logHistory.push((lvlMsg + " " + msg).replaceAll("%c", ""));
     return [`${lvlMsg}%c ${msg}`, lvlFmt, "", ...otherFmts];
@@ -110,3 +102,27 @@ function error(...message) {
 /* underline     */ function u(msg) { return { fmt: "underline", msg: msg || '' }; }
 /* italics       */ function i(msg) { return { fmt: "italic", msg: msg || '' }; }
 /* strikethrough */ function strike(msg) { return { fmt: "strikethrough", msg: msg || '' }; }
+console.info = (...argses) => {
+    infoFn(...argses)();
+};
+console.debug = (...argses) => {
+    debugFn(...argses)();
+};
+console.warn = (...argses) => {
+    warnFn(...argses)();
+};
+console.error = (...argses) => {
+    errorFn(...argses)();
+};
+console.logObj = (argy) => {
+    objectLogFn(argy)();
+};
+const getLogLimit = () => {
+    return logLimit;
+};
+exports.getLogLimit = getLogLimit;
+const setLogLimit = (newLimit) => {
+    logLimit = newLimit;
+    logHistory.length = logLimit;
+};
+exports.setLogLimit = setLogLimit;

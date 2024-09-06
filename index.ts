@@ -1,4 +1,5 @@
 export { 
     b, u, i, strike, 
-    logLimit, logHistory
+    getLogLimit, setLogLimit, 
+    logHistory
  } from "./luxe-logg";

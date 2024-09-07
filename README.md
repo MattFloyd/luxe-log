@@ -13,7 +13,8 @@ infoFn("Logged in user: ", u("Gob Bluth"))();
 
 warnFn("Logged in user: ", i("Gob Bluth"))();
 
-errorFn("Logged in user: ", strike("Gob Bluth"))();```
+errorFn("Logged in user: ", strike("Gob Bluth"))(); 
+```
 
 ![image](https://github.com/user-attachments/assets/4f395964-99c3-4f20-9f39-99fda01ae086)
 
@@ -33,7 +34,8 @@ console.info(...info("Logged in user: ", u("Gob Bluth")));
 
 console.warn(...warn("Logged in user: ", i("Gob Bluth")));
 
-console.error(...error("Logged in user: ", strike("Gob Bluth")));```
+console.error(...error("Logged in user: ", strike("Gob Bluth")));
+```
 
 2) A record of history
 

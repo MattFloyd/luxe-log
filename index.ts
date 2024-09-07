@@ -1,5 +1,8 @@
 export { 
+    debug, info, warn, error, 
+    debugFn, infoFn, warnFn, errorFn,
+    objectLogFn,
     b, u, i, strike, 
-    getLogLimit, setLogLimit, 
-    logHistory
+    LogPart,
+    logHistory, setLogLimit, getLogLimit
  } from "./luxe-logg";

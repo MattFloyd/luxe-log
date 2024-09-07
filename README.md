@@ -21,7 +21,9 @@ errorFn("Logged in user: ", strike("Gob Bluth"))();
 
 Can be combined:
 
-`debugFn("and that's why you ", i("always"), " leave a ", u("note!")))();`
+```ts
+debugFn("and that's why you ", i("always"), " leave a ", u("note!")))();
+```
 
 ![image](https://github.com/user-attachments/assets/ab33aa89-1bd9-4933-b3ea-9e638a952373)
 

@@ -1,6 +1,6 @@
 {
     "name": "luxe-logg",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "Make log styling a little easier",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",

@@ -5,23 +5,35 @@ A logger that retains the code location with two features
 
 1) Easy styling
 
-`console.debug("Logged in user: ", b("Gob Bluth"));`
+```import { debugFn, infoFn, warnFn, errorFn, b, u, i, strike } from "luxe-log";
 
-`console.info("Logged in user: ", u("Gob Bluth"));`
+debugFn("Logged in user: ", b("Gob Bluth"))();
 
-`console.warn("Logged in user: ", i("Gob Bluth"));`
+infoFn("Logged in user: ", u("Gob Bluth"))();
 
-`console.error("Logged in user: ", strike("Gob Bluth"));`
+warnFn("Logged in user: ", i("Gob Bluth"))();
+
+errorFn("Logged in user: ", strike("Gob Bluth"))();```
 
 ![image](https://github.com/user-attachments/assets/4f395964-99c3-4f20-9f39-99fda01ae086)
 
 Can be combined:
 
-`console.debug("and that's why you ", i("always"), " leave a ", u("note!")));`
+`debugFn("and that's why you ", i("always"), " leave a ", u("note!")))();`
 
 ![image](https://github.com/user-attachments/assets/ab33aa89-1bd9-4933-b3ea-9e638a952373)
 
+Alternate syntax:
 
+```import { debug, info, warn, error, b, u, i, strike } from "luxe-log";
+
+console.debug(...debug("Logged in user: ", b("Gob Bluth"));
+
+console.info(...info("Logged in user: ", u("Gob Bluth")));
+
+console.warn(...warn("Logged in user: ", i("Gob Bluth")));
+
+console.error(...error("Logged in user: ", strike("Gob Bluth")));```
 
 2) A record of history
 
@@ -35,8 +47,7 @@ console.log(logHistory);
 
 Notes:
 
-Will replace `console.info`, `console.debug`, `console.warn`, and `console.error`. `console.log` will remain untouched and can still be used for one-off logging statements.
 
 If you need to log an object so that it still expands in the console, but can add to the `logHistory` object, you can use `console.logObj`
 
-To set the limit for log history, set `logLimit`. Default is 200.
+To set the limit for log history, use `setLogLimit`. Default is 200.

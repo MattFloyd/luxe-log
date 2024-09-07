@@ -5,7 +5,8 @@ A logger that retains the code location with two features
 
 1) Easy styling
 
-```import { debugFn, infoFn, warnFn, errorFn, b, u, i, strike } from "luxe-log";
+```
+import { debugFn, infoFn, warnFn, errorFn, b, u, i, strike } from "luxe-log";
 
 debugFn("Logged in user: ", b("Gob Bluth"))();
 
@@ -26,7 +27,8 @@ Can be combined:
 
 Alternate syntax:
 
-```import { debug, info, warn, error, b, u, i, strike } from "luxe-log";
+```
+import { debug, info, warn, error, b, u, i, strike } from "luxe-log";
 
 console.debug(...debug("Logged in user: ", b("Gob Bluth"));
 
